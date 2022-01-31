@@ -1,12 +1,18 @@
 import './home.css';
-import Header from '../../header/Header'
+import Header from '../../components/header/Header'
+import Posts from '../../components/posts/Posts'
+import Sidebar from '../../components/sidebar/Sidebar';
 
 const Home = (props) => {
     return (
+        <>
+        <Header />
         <div className='home'>
-            <Header />
-            homepage
+            <Posts />
+            <Sidebar />
+            
         </div>
+        </>
     )
 }
 
