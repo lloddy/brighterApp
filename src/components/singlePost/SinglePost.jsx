@@ -19,7 +19,7 @@ const SinglePost = (props) => {
                     <span className='singlePostAuthor'>Author: <b>Lloyd</b></span>
                     <span className='singlePostDate'>1 hour ago</span>
                 </div>
-                    <p>Lorem ipsum dolor sit amet, 
+                    <p className='singlePostDesc'>Lorem ipsum dolor sit amet, 
                         consectetur adipisicing elit. 
                         Aliquam ex sunt eveniet id distinctio 
                         numquam, praesentium dolores cumque omnis 
