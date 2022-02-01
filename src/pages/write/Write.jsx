@@ -3,6 +3,10 @@ import './write.css';
 const Write = (props) => {
     return (
         <div className="write">
+            <img 
+            src="https://images.pexels.com/photos/10194714/pexels-photo-10194714.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" 
+            alt="writeImage" 
+            className="writeImage" />
             <form className="writeForm">
                 <div className="writeFormGroup">
                     <label htmlFor="fileInput">
