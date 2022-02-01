@@ -9,15 +9,16 @@ import { Routes, Route, Link } from "react-router-dom";
 
 
 function App() {
+  const user = false;
   return (
     <div className="App">
         <NavBar/>
       <Routes >
         <Route exact path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/write" element={<Write />} />
+        <Route path="/login" element={user ? <Home /> : <Login />} />
+        <Route path="/register" element={user ? <Home /> : <Register />} /> 
+        <Route path="/settings" element={user ? <Settings /> : <Register />} />
+        <Route path="/write" element={user ? <Write /> : <Register />} />
         <Route path="/post/:postId" element={<Single />} />
       </Routes>
     </div>
