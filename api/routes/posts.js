@@ -14,27 +14,46 @@ router.post("/", async (req, res) => {
 })
 
 // UPDATE POST
-router.delete("/:id", async (req, res) => {
-    if (req.body.userId === req.params.id){ 
-        try {
-            const user = await User.findById(req.params.id);
+router.put("/:id", async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+        if (post.username === req.body.username) {
             try {
-                await Post.deleteMany({username: user.username});
-                await User.findByIdAndDelete(req.params.id)
-                res.status(200).json("User has been deleted");
+                const updatedPost = await Post.findByIdAndUpdate(req.params.id, {
+                    $set: req.body
+                },
+                { new: true }
+                );
+                res.status(200).json(updatedPost)
             } catch(err) {
-                res.status(500).json(err);
-            }
-        } catch(err) {
-            res.status(404).json("User not found")
+                res.status(500).json(err)
+            }  
+        } else {
+            res.status(401).json("You can only update your own posts.")
         }
-    } else {
-        res.status(401).json("Sorry, but you can only delete your account.")
+    } catch(err) {
+        res.status(500).json(err)
     }
 });
 
 // DELETE POST
-
+router.delete("/:id", async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+        if (post.username === req.body.username) {
+            try {
+                await post.delete()
+                res.status(200).json("Your post has been deleted.")
+            } catch(err) {
+                res.status(500).json(err)
+            }  
+        } else {
+            res.status(401).json("You can only delete your own posts.")
+        }
+    } catch(err) {
+        res.status(500).json(err)
+    }
+});
 // GET POST
 router.get("/:id", async (req, res) => {
     try {
