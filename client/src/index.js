@@ -5,11 +5,13 @@ import App from './App';
 import { ContextProvider } from './context/Context';
 
 ReactDOM.render(
-  <Router>
-    <ContextProvider>
-      <App />
-    </ContextProvider>
-  </Router>,
+  <React.StrictMode>
+    <Router>
+      <ContextProvider>
+        <App />
+      </ContextProvider>
+    </Router>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
