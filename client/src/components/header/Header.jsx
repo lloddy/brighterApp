@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { Context } from '../../context/Context';
 import './header.css';
 
 const Header = (props) => {
