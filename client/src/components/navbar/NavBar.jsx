@@ -4,7 +4,11 @@ import { useContext } from 'react';
 import { Context } from '../../context/Context';
 
 const NavBar = (props) => {
-    const {user} = useContext(Context)
+    const { user, dispatch} = useContext(Context)
+
+    const handleLogout = () => {
+        dispatch({type: "LOGOUT"})
+    }
     return (
         <div className='navBar'>
             <div className="navLeft">
@@ -28,7 +32,7 @@ const NavBar = (props) => {
                     <li className="navListItem">
                         <Link className='link' to="/write">POST</Link>    
                     </li>                          
-                    <li className="navListItem">
+                    <li className="navListItem" onClick={handleLogout}>
                         {user && "LOGOUT"}
                     </li> 
                 </ul>
