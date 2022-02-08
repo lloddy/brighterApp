@@ -7,9 +7,12 @@ const userRoute = require("./routes/users")
 const postRoute = require("./routes/posts")
 const categoryRoute = require("./routes/categories")
 const multer = require("multer")
+const path = require("path")
+const cors = require('cors')
 
 dotenv.config();
 app.use(express.json());
+app.use("/images", express.static(path.join(__dirname,"/images")))
 const { PORT, DATABASE_URL} = process.env;
 
 mongoose.connect(DATABASE_URL);
@@ -17,6 +20,8 @@ mongoose.connection
     .on("open", () => console.log("Congrats, you're connected to MongoDB!"))
     .on("close", () => console.log("You are now disconnected from MongoDB"))
     .on("error", (error) => console.log(error));
+
+app.use(cors());
 
 const storage = multer.diskStorage({
     destination:(req, file, cb) => {

@@ -7,7 +7,7 @@ const SinglePost = (props) => {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [ post, setPost ] = useState({})
-
+    const PF = "http://localhost:3001/images/";
     useEffect(()  => {
         const getPost = async () => {
             const res = await axios.get("/posts/" + path)
@@ -20,7 +20,7 @@ const SinglePost = (props) => {
             <div className="singlePostWrapper">
                 {post.photo && (
                     <img 
-                        src={post.photo}
+                        src={PF + post.photo}
                         alt="postimage" 
                         className="singlePostImage" 
                     />
@@ -42,7 +42,7 @@ const SinglePost = (props) => {
                     <span className='singlePostDate'>{new Date(post.createdAt).toDateString()}</span>
                 </div>
                     <p className='singlePostDesc'>{post.desc}</p>
-                
+                    
             </div>
         </div>
     )
