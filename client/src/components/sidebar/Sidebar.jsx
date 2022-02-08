@@ -43,7 +43,7 @@ const Sidebar = (props) => {
                     <i className="sidebarIcons fab fa-facebook-square"></i>
                     <i className="sidebarIcons fab fa-twitter-square"></i>
                     <i className="sidebarIcons fab fa-pinterest-square"></i>
-                    <i className="sidebarIcons fab fa-pinterest-square"></i>
+                    <i className="sidebarIcons fab fa-instagram-square"></i>
                 </div>
             </div>
         </div>
