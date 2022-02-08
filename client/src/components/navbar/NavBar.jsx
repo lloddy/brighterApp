@@ -5,9 +5,11 @@ import { Context } from '../../context/Context';
 
 const NavBar = (props) => {
     const { user, dispatch} = useContext(Context)
+    const PF = "http://localhost:3001/images/"
 
     const handleLogout = () => {
         dispatch({type: "LOGOUT"})
+
     }
     return (
         <div className='navBar'>
@@ -39,11 +41,13 @@ const NavBar = (props) => {
             </div>
             <div className="navRight">
                 {user ? (
-                    <img 
-                    className='navImage'
-                    src={user.profilePic}
-                    alt="" 
-                    />
+                    <Link to="/settings">
+                        <img 
+                        className='navImage'
+                        src={PF + user.profilePic}
+                        alt="" 
+                        />
+                    </Link>
                 ) : (
                     <ul className='navList'>
                         <li className='navListItem'>

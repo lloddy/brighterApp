@@ -25,13 +25,11 @@ const handleSubmit = async(e) => {
         try {
             await axios.post("/upload", data);
         } catch(err) {}
-        try {
-           const res = await axios.post("/posts", newPost);
-           window.location.replace("/post/" + res.data._id) 
-        } catch (err) {
-            
-        }
     }
+    try {
+       const res = await axios.post("/posts", newPost);
+       window.location.replace("/post/" + res.data._id) 
+    } catch (err) {}
     
 }
     return (
