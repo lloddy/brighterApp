@@ -20,11 +20,12 @@ const Sidebar = (props) => {
         <div className='sidebar'>
             <div className="sidebarItem">
                 <span className="sidebarTitle">ABOUT ME</span>
-                <img 
-                className='sidebarProfilePic'
-                src={PF + user.profilePic }
-                alt="pic" 
-                />
+                    (<img 
+                    className='sidebarProfilePic'
+                    src={PF + user.profilePic }
+                    alt="pic" 
+                    />) :
+                    (<img></img>)
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Non dolor alias, necessitatibus aperiam architecto distinctio nostrum voluptates laudantium officia veniam ipsam eveniet deserunt assumenda voluptas. 

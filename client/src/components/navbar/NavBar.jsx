@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { Context } from '../../context/Context';
 
 const NavBar = (props) => {
-    const { user, dispatch} = useContext(Context)
+    const { user, dispatch } = useContext(Context)
 
     const PF = "http://localhost:3001/images/"
     const handleLogout = () => {
