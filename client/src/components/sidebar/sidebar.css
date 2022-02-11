@@ -47,6 +47,7 @@
     width: 50%;
     margin-top: 15px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .sidebarSocial {
@@ -61,4 +62,11 @@
     font-size: 16px;
     margin: 10px;
     cursor: pointer;
+}
+
+.sidebarProfilePic {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 7px;
 }
