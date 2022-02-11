@@ -10,6 +10,7 @@ const Settings = (props) => {
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ success, setSuccess ] = useState(false)
+    const [ bio, setBio ] = useState("")
 
     const { user, dispatch } = useContext(Context)
     const PF = "http://localhost:3001/images/"
@@ -22,6 +23,7 @@ const Settings = (props) => {
             username, 
             email,
             password,
+            bio,
         };
         if(file) {
             const data = new FormData();
@@ -85,10 +87,28 @@ const Settings = (props) => {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <label>Password</label>
-                    <input type="password" onChange={(e) => setPassword(e.target.value)}/>
-                    <button className="settingsSubmit" type="submit">Update</button>
+                    <input 
+                        type="password" 
+                        onChange={(e) => setPassword(e.target.value)}/>
+                    <label>Tell us about yourself...</label>
+                    <textarea 
+                        name="bio" 
+                        cols="30" 
+                        rows="10"
+                        placeholder={user.bio}
+                        onChange={(e) => setBio(e.target.value)}>
+                    </textarea>
+                    <button 
+                        className="settingsSubmit" 
+                        type="submit">
+                        Update
+                    </button>
                     {success &&
-                        <span style={{color:"green", textAlign:"center", marginTop:"20px"}}>Your profile has been updated.</span>
+                        <span style={{color:"green", 
+                        textAlign:"center", 
+                        marginTop:"20px"}}>
+                            Your profile has been updated.
+                        </span>
                     }
                 </form>
             </div>
