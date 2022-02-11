@@ -5,8 +5,8 @@ import { Context } from '../../context/Context';
 
 const NavBar = (props) => {
     const { user, dispatch} = useContext(Context)
-    const PF = "http://localhost:3001/images/"
 
+    const PF = "http://localhost:3001/images/"
     const handleLogout = () => {
         dispatch({type: "LOGOUT"})
 
@@ -22,19 +22,19 @@ const NavBar = (props) => {
             
             <div className="navCenter">
                 <ul className="navList">
-                    <li className="navListItem">
+                    <li key="navHome" className="navListItem">
                         <Link className='link' to="/">HOME</Link>    
                     </li>                
-                    <li className="navListItem">
-                        <Link className='link' to="/">CONTACT</Link>    
-                    </li>
-                    <li className="navListItem">
+                    <li key="navAbout" className="navListItem">
                         <Link className='link' to="/">ABOUT</Link>    
                     </li>   
-                    <li className="navListItem">
+                    <li key="navPost" className="navListItem">
                         <Link className='link' to="/write">POST</Link>    
                     </li>                          
-                    <li className="navListItem" onClick={handleLogout}>
+                    <li key="navResources" className="navListItem">
+                        <Link className='link' to="/">RESOURCES</Link>    
+                    </li>
+                    <li key="navLogout" className="navListItem" onClick={handleLogout}>
                         {user && "LOGOUT"}
                     </li> 
                 </ul>
@@ -50,12 +50,12 @@ const NavBar = (props) => {
                     </Link>
                 ) : (
                     <ul className='navList'>
-                        <li className='navListItem'>
+                        <li key="navLogin" className='navListItem'>
                             <Link className='link' to="/login">
                                 LOGIN
                             </Link>
                         </li>
-                        <li className='navListItem'>
+                        <li key="navReg" className='navListItem'>
                             <Link className='link' to="/register">
                                 REGISTER
                             </Link>
