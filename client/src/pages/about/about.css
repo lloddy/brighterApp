@@ -1,0 +1,23 @@
+.aboutWrapper {
+    display: flex;
+}
+
+.aboutText {
+    flex-direction: column;
+    width: 100%;
+    padding-top: 50px;
+    margin-left: 50px;
+}
+
+.aboutTitle {
+    font-family: 'Varela', sans-serif;
+    margin-top: 20px;
+}
+
+.aboutStatement {
+    margin-top: 20px;
+}
+
+.aboutParagraph {
+    padding-top: 10px;
+}
