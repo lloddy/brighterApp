@@ -8,6 +8,8 @@ import Write from "./pages/write/Write";
 import { Routes, Route, Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+import About from "./pages/about/About";
+import Resources from "./pages/resources/Resources";
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <NavBar/>
       <Routes >
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/resources" element={<Resources />} />
         <Route path="/login" element={user ? <Home /> : <Login />} />
         <Route path="/register" element={user ? <Home /> : <Register />} /> 
         <Route path="/settings" element={user ? <Settings /> : <Register />} />

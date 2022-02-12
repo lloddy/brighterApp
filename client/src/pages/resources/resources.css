@@ -1,0 +1,35 @@
+.resourcesWrapper {
+    display: flex;
+}
+
+.resourcesMain {
+    padding-top: 50px;
+    margin-left: 50px;
+    width: 100%;
+}
+
+.resourcesTitle {
+    font-family: 'Varela', sans-serif;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;    
+}
+
+.resourcesDesc {
+    margin-top: 10px;
+}
+
+.resourcesListItem {
+    margin: 20px;
+    list-style: none;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 15px;
+    background-color: #fdfbfb;;
+    border-top: 1px solid #a7a4a4;
+    border-bottom: 1px solid #a7a4a4;
+    font-family: 'Varela', sans-serif;
+}
