@@ -1,17 +1,17 @@
-import axios from 'axios';
 import { useContext, useEffect, useReducer, useState } from 'react';
 import './sidebar.css';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context'
+import { axiosInstance } from '../../config';
 
 const Sidebar = (props) => {
     const [ cats, setCats ] = useState([]);
     const { user } = useContext(Context)
-    const PF = "http://localhost:3001/images/"
+    const PF = "https://abrighterday.herokuapp.com/images/"
 
     useEffect(() => {
         const getCats = async () => {
-            const res = await axios.get("/categories")
+            const res = await axiosInstance.get("/categories")
             setCats(res.data)
         }
         getCats()
