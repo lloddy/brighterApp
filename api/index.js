@@ -13,7 +13,7 @@ const cors = require('cors')
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname,"/images")))
-const { PORT, DATABASE_URL} = process.env;
+const {PORT, DATABASE_URL} = process.env;
 
 mongoose.connect(DATABASE_URL);
 mongoose.connection
@@ -41,6 +41,6 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.listen(PORT, () => {
+app.listen((PORT || 5000), () => {
     console.log("backend is running")
 })
