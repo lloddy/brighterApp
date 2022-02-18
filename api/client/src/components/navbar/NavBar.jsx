@@ -62,7 +62,7 @@ const NavBar = (props) => {
                         </li>
                     </ul>
                 )}
-                <i className="navSearchIcon fas fa-search"></i>
+                {/* <i className="navSearchIcon fas fa-search"></i> */}
             </div>
         </div>
     )

@@ -33,3 +33,9 @@ a {
     border-bottom: 1px solid #a7a4a4;
     font-family: 'Varela', sans-serif;
 }
+
+@media only screen and (max-width: 800px) {
+    .sidebar {
+        display: none;
+    }
+}

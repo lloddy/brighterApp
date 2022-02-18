@@ -6,7 +6,7 @@ const Single = (props) => {
     return (
         <div className='single'>
             <SinglePost />
-            <Sidebar />
+            <Sidebar className="sidebar"/>
         </div>
     )
 }

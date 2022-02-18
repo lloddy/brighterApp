@@ -50,7 +50,7 @@ const Resources = (props) => {
                     </ul>
                 </div>
             </div>
-            <div> 
+            <div className="sidebar"> 
                 {user ? (
                     <Sidebar />
 

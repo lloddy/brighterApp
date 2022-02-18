@@ -79,3 +79,9 @@
     margin-top: 20px;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 800px) {
+    .sidebar {
+        display: none;
+    }
+}

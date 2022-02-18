@@ -13,7 +13,7 @@ const Settings = (props) => {
     const [ bio, setBio ] = useState("")
 
     const { user, dispatch } = useContext(Context)
-    const PF = "http://localhost:3001/images/"
+    const PF = "http://abrighterday.herokuapp.com/images/"
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -112,7 +112,9 @@ const Settings = (props) => {
                     }
                 </form>
             </div>
-            <Sidebar />
+            <div className='sidebar'>
+                <Sidebar />
+            </div>
         </div>
     )
 }

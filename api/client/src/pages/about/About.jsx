@@ -22,7 +22,7 @@ const About = (props) => {
                     </p>  
                 </div>
             </div>
-        <div>
+        <div className="sidebar">
             {user ? (
                 <Sidebar />
 

@@ -27,7 +27,7 @@ const Home = (props) => {
         <Header />
         <div className='home'>
             <Posts posts={posts} />
-            <div> 
+            <div className="sidebar"> 
                 {user ? (
                     <Sidebar />
 
