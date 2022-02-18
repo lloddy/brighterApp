@@ -31,3 +31,11 @@
     object-fit: cover;
     object-position: 50% 75%;
 }
+
+@media only screen and (max-width: 800px) {
+    .headerTitleLg {
+        color: gray;
+        top: 25%;
+        font-size: 80px;
+    }
+}

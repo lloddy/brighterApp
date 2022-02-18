@@ -31,9 +31,11 @@ const NavBar = (props) => {
                     <li key="navPost" className="navListItem">
                         <Link className='link' to="/write">POST</Link>    
                     </li>                          
+                    <div className='navRes'>
                     <li key="navResources" className="navListItem">
                         <Link className='link' to="/resources">RESOURCES</Link>    
                     </li>
+                    </div>
                     <li key="navLogout" className="navListItem" onClick={handleLogout}>
                         {user && "LOGOUT"}
                     </li> 
@@ -49,7 +51,7 @@ const NavBar = (props) => {
                         />
                     </Link>
                 ) : (
-                    <ul className='navList'>
+                    <ul className='navList' id="logs">
                         <li key="navLogin" className='navListItem'>
                             <Link className='link' to="/login">
                                 LOGIN

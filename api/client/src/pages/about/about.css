@@ -22,8 +22,28 @@
     padding-top: 10px;
 }
 
+.resources {
+    display: none;
+}
+
 @media only screen and (max-width: 800px) {
     .sidebar {
         display: none;
+    }
+
+    .aboutParagraph {
+        max-width: 200px;
+    }
+    .resources {
+        display: block;
+        position: absolute;
+        right: 45%;
+        top: 60%;
+        cursor: pointer;
+        background-color: lightcoral;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
     }
 }

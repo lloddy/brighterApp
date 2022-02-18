@@ -4,3 +4,11 @@
     flex-wrap: wrap;
     margin: 20px;
 }
+
+@media only screen and (max-width: 800px) {
+    .posts {
+        display: block;
+        max-width: fit-content;
+        align-content: center;
+    }
+}

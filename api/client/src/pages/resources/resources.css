@@ -38,4 +38,16 @@ a {
     .sidebar {
         display: none;
     }
+    .resourcesMain {
+        margin: 0;
+    }
+    .resourcesWrapper {
+        max-width: 300px;
+    }
+    .resourcesListItem {
+        margin-top: 20px;
+    }
+    .resourcesTitle, .resourcesDesc {
+        margin-left: 20px;
+    }
 }

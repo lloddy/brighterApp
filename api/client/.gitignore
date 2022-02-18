@@ -18,9 +18,6 @@
 .env.test.local
 .env.production.local
 
-# exclude everything
-aip/images/
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

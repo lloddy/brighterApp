@@ -62,4 +62,19 @@
     .navLeft {
         display: none;
     }
+    .navListItem {
+        font-size: 10px;
+        margin-right: 5px;
+    }
+    .navList {
+        margin-left: 10px;
+        padding: 10px;
+    }
+    .navCenter {
+        flex: 0;
+    }
+    .navRes{
+        display: none;
+    }
+
 }

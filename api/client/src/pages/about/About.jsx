@@ -3,6 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar"
 import SideInfo from "../../components/sideInfo/SideInfo"
 import { Context } from "../../context/Context"
 import './about.css'
+import { Link } from "react-router-dom"
 
 const About = (props) => {
     const { user } = useContext(Context)
@@ -22,14 +23,17 @@ const About = (props) => {
                     </p>  
                 </div>
             </div>
-        <div className="sidebar">
-            {user ? (
-                <Sidebar />
+            <div className="sidebar">
+                {user ? (
+                    <Sidebar />
 
-                ) : (
-                <SideInfo />
-            )}
-        </div>
+                    ) : (
+                    <SideInfo />
+                )}
+            </div>
+            <div className="resources">
+                <Link className='link' to="/resources">RESOURCES</Link>
+            </div>
             
         </div>
     )
