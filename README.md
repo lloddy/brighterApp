@@ -14,6 +14,7 @@ I've dealt with depression my entire life. I wanted to make a site that let's pe
 | HTML         |
 | CSS          |
 | Heroku       |
+| Cloudinary   |
 
 ## *How to Get Started*
 [Click Here to Launch](https://abrighterday.herokuapp.com/)

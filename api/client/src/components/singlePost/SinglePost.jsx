@@ -8,7 +8,6 @@ const SinglePost = (props) => {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [ post, setPost ] = useState({})
-    const PF = "https://abrighterday.herokuapp.com/images/";
     const { user } = useContext(Context);
     const [ title, setTitle ] = useState("")
     const [ desc, setDesc ] = useState("")
@@ -49,7 +48,7 @@ const SinglePost = (props) => {
             <div className="singlePostWrapper">
                 {post.photo && (
                     <img 
-                        src={PF + post.photo}
+                        src={post.photo}
                         alt="postimage" 
                         className="singlePostImage" 
                     />

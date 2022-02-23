@@ -16,7 +16,7 @@ function App() {
   const {user} = useContext(Context);
   return (
     <div className="App">
-        <NavBar/>
+      <NavBar/>
       <Routes >
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
