@@ -11,9 +11,7 @@ const Settings = (props) => {
     const [ password, setPassword ] = useState("")
     const [ success, setSuccess ] = useState(false)
     const [ bio, setBio ] = useState("")
-
     const { user, dispatch } = useContext(Context)
-    const PF = "http://abrighterday.herokuapp.com/images/"
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -61,7 +59,7 @@ const Settings = (props) => {
                         <img src={
                             file ?
                             URL.createObjectURL(file) :
-                            PF + user.profilePic
+                            user.profilePic
                         } 
                         alt="" />
                         <label htmlFor="fileInput">
