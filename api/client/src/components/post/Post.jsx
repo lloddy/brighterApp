@@ -9,16 +9,16 @@ const Post = ({post}) => {
 
     const loadImages = async () => {
         try {
-            const res = await fetch('api/images')
-            const data = await res.json()
+            const res = await fetch('/api/images');
+            const data = await res.json();
             setImageIds(data);
-        } catch (error) {
-            console.log(error)
+        } catch (err) {
+            console.error(err);
         }
-    }
+    };
     useEffect(() => {
         loadImages();
-    }, [])
+    }, []);
 
 
     return (

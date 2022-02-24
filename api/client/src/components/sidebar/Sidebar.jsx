@@ -22,7 +22,7 @@ const Sidebar = (props) => {
                 <span className="sidebarTitle">ABOUT ME</span>
                     <img 
                     className='sidebarProfilePic'
-                    src={user.profilePic }
+                    src={user.profilePic}
                     alt="pic" />
                 <p>{user.bio}</p>
             </div>

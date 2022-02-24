@@ -6,7 +6,6 @@ import { Context } from '../../context/Context';
 const NavBar = (props) => {
     const { user, dispatch } = useContext(Context)
 
-    const PF = "https://abrighterday.herokuapp.com/images/"
     const handleLogout = () => {
         dispatch({type: "LOGOUT"})
 
