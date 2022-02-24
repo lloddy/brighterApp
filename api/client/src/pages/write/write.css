@@ -84,4 +84,10 @@
     .writeInput {
         width: 50vw;
     }
+    .previewImage {
+        top: 60px;
+        margin-left: 80px;
+        max-width: 75px;
+        max-height: 75px;
+    }
 }
