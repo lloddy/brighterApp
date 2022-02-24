@@ -84,8 +84,12 @@ const Write = (props) => {
                 <button className="writeSubmit" type="submit">Post</button>
             </form>
             {previewSource && (
-                <img src={previewSource} alt="chosen" 
-                style={{height: '300px'}}/>
+                <img 
+                    src={previewSource} 
+                    alt="chosen" 
+                    style={{height: '300px'}}
+                    className="previewImage"
+                />
             )}
         </div>
     )

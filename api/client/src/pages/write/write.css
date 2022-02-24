@@ -31,6 +31,7 @@
     font-size: 20px;
     color: rgb(155, 155, 155);
     cursor: pointer;
+    margin-left: 20px;
 }
 
 .writeInput {
@@ -51,7 +52,7 @@
 
 .writeSubmit {
     position: absolute;
-    top: 20px;
+    top: 90px;
     right: 50px;
     color: white;
     background: teal;
@@ -60,6 +61,16 @@
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.previewImage {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 20px;
+    position: absolute;
+    top: 150px
 }
 
 @media only screen and (max-width: 800px) {
