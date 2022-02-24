@@ -46,7 +46,7 @@ const NavBar = (props) => {
                     <Link to="/settings">
                         <img 
                         className='navImage'
-                        src={PF + user.profilePic}
+                        src={user.profilePic}
                         alt="" 
                         />
                     </Link>

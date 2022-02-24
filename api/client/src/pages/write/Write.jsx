@@ -6,9 +6,9 @@ import { axiosInstance } from '../../config';
 const Write = (props) => {
     const [ title, setTitle] = useState("")
     const [ desc, setDesc ] = useState("")
-    const {user} = useContext(Context)
-    const [fileInputState, setFileInputState] = useState('')
-    const [previewSource, setPreviewSource] = useState()
+    const { user } = useContext(Context)
+    const [ fileInputState, setFileInputState ] = useState('')
+    const [ previewSource, setPreviewSource ] = useState()
 
 
     const handleFileInputChange = (e) => {

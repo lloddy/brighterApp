@@ -19,7 +19,6 @@ const Post = ({post}) => {
     useEffect(() => {
         loadImages();
     }, [])
-    const PF = "https://abrighterday.herokuapp.com/images/"
 
 
     return (

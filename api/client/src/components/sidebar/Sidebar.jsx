@@ -7,7 +7,6 @@ import { axiosInstance } from '../../config';
 const Sidebar = (props) => {
     const [ cats, setCats ] = useState([]);
     const { user } = useContext(Context)
-    const PF = "https://abrighterday.herokuapp.com/images/"
 
     useEffect(() => {
         const getCats = async () => {
@@ -16,13 +15,14 @@ const Sidebar = (props) => {
         }
         getCats()
     },[])
+    
     return (
         <div className='sidebar'>
             <div className="sidebarItem">
                 <span className="sidebarTitle">ABOUT ME</span>
                     <img 
                     className='sidebarProfilePic'
-                    src={PF + user.profilePic }
+                    src={user.profilePic }
                     alt="pic" />
                 <p>{user.bio}</p>
             </div>

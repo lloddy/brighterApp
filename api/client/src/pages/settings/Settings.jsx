@@ -5,16 +5,32 @@ import { Context } from '../../context/Context'
 import { axiosInstance } from '../../config';
 
 const Settings = (props) => {
-    const [ file, setFile ] = useState(null)
     const [ username, setUserename ] = useState("")
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ success, setSuccess ] = useState(false)
     const [ bio, setBio ] = useState("")
     const { user, dispatch } = useContext(Context)
+    const [ previewSource, setPreviewSource ] = useState()
+    const [ fileInputState, setFileInputState ] = useState('')
+
+    const handleFileInputChange = (e) => {
+        const file = e.target.files[0]
+        previewFile(file)
+    }
+
+    const previewFile = (file) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onloadend = () => {
+            setPreviewSource(reader.result)
+        }
+    }
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        if(!previewSource) return;
+        uploadImage(previewSource)
         dispatch({ type:"UPDATE_START" })
         const updatedUser = {
             userId:user._id,
@@ -22,17 +38,9 @@ const Settings = (props) => {
             email,
             password,
             bio,
+            profilePic:previewSource
         };
-        if(file) {
-            const data = new FormData();
-            const filename = Date.now() + file.name;
-            data.append('name', filename);
-            data.append('file', file);
-            updatedUser.profilePic = filename;
-            try {
-                await axiosInstance.post("/upload", data);
-            } catch(err) {}
-        }
+
         try {
             const res = await axiosInstance.put("/users/" + user._id, updatedUser);
             setSuccess(true);
@@ -41,6 +49,18 @@ const Settings = (props) => {
             dispatch({type:"UPDATE_FAILURE"})
         }
     }
+
+    const uploadImage = async (base64EncodedImage) => {
+        try {
+            await fetch('/api/upload', {
+                method: 'POST', 
+                body: JSON.stringify({data: base64EncodedImage}),
+                headers: {'Content-Type': 'application/json'}
+            })
+        } catch (error) {
+            console.log(error)
+        }
+}
 
     return (
         <div className="settings">
@@ -56,21 +76,27 @@ const Settings = (props) => {
                 <form className="settingsForm" onSubmit={handleSubmit}>
                     <label htmlFor="">Profile Picture</label>
                     <div className="settingsPP">
-                        <img src={
-                            file ?
-                            URL.createObjectURL(file) :
-                            user.profilePic
-                        } 
-                        alt="" />
+                        {previewSource && (
+                            <img 
+                                src={previewSource} 
+                                alt="chosen" 
+                                className="settingsPP"
+                                id="previewImage"
+                            />
+                        )}  
+
                         <label htmlFor="fileInput">
                             <i className="settingsPPIcon far fa-user-circle"></i>
                         </label>
                         <input 
-                            type="file" 
-                            id="fileInput" 
+                            id="fileInput"
+                            type="file"  
+                            name="image" 
                             style={({display:"none"})} 
-                            onChange={(e) => setFile(e.target.files[0])}
+                            onChange={handleFileInputChange} 
+                            value={fileInputState} className="form-input" 
                         />
+
                     </div>
                     <label>Username</label>
                     <input 
