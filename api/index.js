@@ -8,6 +8,8 @@ const postRoute = require("./routes/posts")
 const categoryRoute = require("./routes/categories")
 const cors = require('cors');
 const { cloudinary } = require('./utils/cloudinary')
+const path = require("path");
+
 app.use(cors());
 
 dotenv.config();
@@ -29,6 +31,12 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
+
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
 
 app.get('/api/images', async (req, res) => {
     const {resources} = await cloudinary.search.expression
