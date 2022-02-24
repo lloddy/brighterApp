@@ -1,8 +1,6 @@
 import './post.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Image } from 'cloudinary-react'
-
 
 const Post = ({post}) => {
     const [imageIds, setImageIds] = useState([]);
@@ -13,7 +11,7 @@ const Post = ({post}) => {
             const data = await res.json();
             setImageIds(data);
         } catch (err) {
-            console.error(err);
+            console.log(err);
         }
     };
     useEffect(() => {
