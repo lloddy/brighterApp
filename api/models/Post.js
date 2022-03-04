@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+import Comment from './Comment'
 
 const PostSchema = new mongoose.Schema ({
         title: {
@@ -21,7 +22,8 @@ const PostSchema = new mongoose.Schema ({
         categories: {
             type: Array,
             require: false,
-        }
+        },
+        comment: Comment
     },
     { timestamps: true }
 );
