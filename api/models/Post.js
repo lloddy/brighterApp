@@ -1,5 +1,12 @@
 const mongoose = require('mongoose');
-import Comment from './Comment'
+
+const CommentSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    comments: String
+});
 
 const PostSchema = new mongoose.Schema ({
         title: {
@@ -23,7 +30,7 @@ const PostSchema = new mongoose.Schema ({
             type: Array,
             require: false,
         },
-        comment: Comment
+        comments: [CommentSchema]
     },
     { timestamps: true }
 );

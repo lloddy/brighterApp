@@ -10,15 +10,17 @@ const SinglePost = (props) => {
     const [ post, setPost ] = useState({})
     const { user } = useContext(Context);
     const [ title, setTitle ] = useState("")
+    const [ comments, setComments ] = useState("")
     const [ desc, setDesc ] = useState("")
     const [ updateMode, setUpdateMode ] = useState(false)
 
-    useEffect(()  => {
+    useEffect(() => {
         const getPost = async () => {
             const res = await axiosInstance.get("/posts/" + path)
             setPost(res.data)
             setTitle(res.data.title)
             setDesc(res.data.desc)
+            setComments(res.data.comments)
         }
         getPost()
     },[path])
@@ -41,6 +43,19 @@ const SinglePost = (props) => {
             })
             setUpdateMode(false)
         } catch (err) {}
+    }
+
+    const handleCommentSubmit = async (e) => {
+        e.preventDefault();
+        const newComment = {
+            username:user.username,
+            comments
+        }
+        try {
+            const res = await axiosInstance.put(`/posts/${post._id}`, newComment)
+        } catch (error) {
+            
+        }
     }
 
     return (
@@ -80,6 +95,7 @@ const SinglePost = (props) => {
                     </span>
                     <span className='singlePostDate'>{new Date(post.createdAt).toDateString()}</span>
                 </div>
+
                 {updateMode ? (
                     <textarea 
                         className='singlePostDescInput' 
@@ -92,6 +108,14 @@ const SinglePost = (props) => {
                 {updateMode && 
                     <button className="singlePostButton" onClick={handleUpdate}>Update</button>    
                 }
+            </div>
+            <div className="commentWrapper">
+                <textarea className='commentInput'></textarea>
+                <button onClick={handleCommentSubmit}>Comment</button>
+            </div>
+            <div className="comments">
+                <h3>Comments</h3>
+                <ul>{post.comments}</ul> 
             </div>
         </div>
     )
